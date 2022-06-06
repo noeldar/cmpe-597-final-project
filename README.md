@@ -8,13 +8,12 @@
 ```
 In our_TENER.py
 
-from GAN_Generator_complex import Generator
-G = Generator(g_input_dim = z_dim, g_output_dim = 28*28).to(device)
-G = torch.load(f"generator_complex", map_location=torch.device('cuda'))
-fake_imgs = plot_random_latent_images(G, "complex")
 
-print("Calculating Inception Score...")
-print(inception_score(fake_imgs, cuda=False, batch_size=32, resize=True, splits=10))
+paths = {
+        "train": "data/{}/train.txt".format(dataset),
+        "test": "data/{}/test.txt".format(dataset),
+        "dev": "data/{}/dev.txt".format(dataset)
+}
 ```
 
 
